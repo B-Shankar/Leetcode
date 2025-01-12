@@ -25,4 +25,22 @@ public class RichestCustomerWealth {
         return ans;
     }
 
+    /*
+        //LeetCode Solution
+        * class Solution {
+        public int maximumWealth(int[][] accounts) {
+            int ans = Integer.MIN_VALUE;
+            for(int customer = 0; customer < accounts.length; customer++){
+                int sum = 0;
+                for(int account = 0; account < account[customer].length; account++){
+                    sum += account[customer][account];
+                }
+
+                if(sum > ans){
+                    ans = sum;
+                }
+            }
+            return ans;
+        }
+    }*/
 }
