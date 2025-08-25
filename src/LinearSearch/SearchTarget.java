@@ -1,4 +1,4 @@
-package Linear_Search;
+package LinearSearch;
 /*
 * Linear Search: Find an element in an array; Value or Index
 * */

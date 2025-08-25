@@ -1,4 +1,4 @@
-package Linear_Search;
+package LinearSearch;
 /*
   1672: Richest Customer Wealth
 */

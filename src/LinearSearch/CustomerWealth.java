@@ -1,4 +1,4 @@
-package Linear_Search;
+package LinearSearch;
 
 public class CustomerWealth {
     public static void main(String[] args) {
