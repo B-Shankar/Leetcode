@@ -36,6 +36,29 @@ public class LinkedListCycle {
             }
             return false;                  // reached end, no cycle
         }
+
+        public int cycleLength(ListNode head) {
+            ListNode slow = head;
+            ListNode fast = head;
+
+            while (fast != null && fast.next != null) {
+                slow = slow.next;          // move 1 step
+                fast = fast.next.next;     // move 2 steps
+
+                if (slow == fast) {
+
+                    ListNode temp = slow;
+                    int length = 0;
+                    do {
+                        temp = temp.next;
+                        length++;
+                    } while (temp != slow);
+
+                    return length;           // cycle detected
+                }
+            }
+            return 0;                  // reached end, no cycle
+        }
     }
 
     public static void main(String[] args) {
@@ -51,7 +74,9 @@ public class LinkedListCycle {
         // Apply solution
         Solution sol = new Solution();
         boolean result = sol.hasCycle(head);
+        int ans = sol.cycleLength(head);
 
         System.out.println("Linked list has Cycle(Cyclic): " + result);
+        System.out.println("Linked list cycle length: " + ans);
     }
 }
