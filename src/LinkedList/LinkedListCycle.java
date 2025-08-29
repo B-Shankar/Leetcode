@@ -46,15 +46,17 @@ public class LinkedListCycle {
                 fast = fast.next.next;     // move 2 steps
 
                 if (slow == fast) {
+                    System.out.println("Met at node with value: " + slow.val);
 
                     ListNode temp = slow;
                     int length = 0;
                     do {
                         temp = temp.next;
                         length++;
+                        System.out.println("Visited node: " + temp.val + ", length=" + length);
                     } while (temp != slow);
 
-                    return length;           // cycle detected
+                    return length;
                 }
             }
             return 0;                  // reached end, no cycle
@@ -63,7 +65,7 @@ public class LinkedListCycle {
 
     public static void main(String[] args) {
         // Example input
-        int[] values = {1, 1, 2, 3, 3};
+        int[] values = {1, 2, 3, 4, 5};
 
         // Build list
         ListNode head = buildList(values);
