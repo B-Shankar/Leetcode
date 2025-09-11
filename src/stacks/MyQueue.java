@@ -4,6 +4,7 @@ import java.util.Stack;
 
 //232. Implement Queue using Stacks
 class MyQueue {
+    /************This is INSERT EFFICIENT QUEUE*************/
     private Stack<Integer> first;
     private Stack<Integer> second;
 
@@ -12,10 +13,12 @@ class MyQueue {
         second = new Stack<>();
     }
 
+    // O(1)
     public void push(int x) {
         first.push(x);
     }
 
+    // O(n)
     public int pop() {
         while (!first.isEmpty()) {
             second.push(first.pop());
@@ -30,6 +33,7 @@ class MyQueue {
         return removed;
     }
 
+    // O(n)
     public int peek() {
         while (!first.isEmpty()) {
             second.push(first.pop());
@@ -63,6 +67,7 @@ class MyQueue {
 }
 
 class QueueUsingStacks {
+    /************ This is REMOVE EFFICIENT QUEUE *************/
     private Stack<Integer> first;
     private Stack<Integer> second;
 
@@ -71,41 +76,52 @@ class QueueUsingStacks {
         second = new Stack<>();
     }
 
-    public void add(int value) {
-        first.push(value);
-    }
-
-    public int remove() throws Exception{
-
+    // O(n)
+    public void add(int x) {
+        // Move everything to second
         while (!first.isEmpty()) {
             second.push(first.pop());
         }
 
-        int removed = second.pop();
+        // Push new element
+        first.push(x);
 
+        // Move everything back
         while (!second.isEmpty()) {
             first.push(second.pop());
         }
+    }
 
-        return removed;
+    // O(1)
+    public int remove() throws Exception {
+        if (first.isEmpty()) {
+            throw new Exception("Queue is empty");
+        }
+        return first.pop();
+    }
+
+    // O(1)
+    public int peek() throws Exception {
+        if (first.isEmpty()) {
+            throw new Exception("Queue is empty");
+        }
+        return first.peek();
     }
 
     public boolean isEmpty() {
         return first.isEmpty();
     }
 
-    public int peek() throws Exception {
-        while (!first.isEmpty()) {
-            second.push(first.pop());
+    public static void main(String[] args) {
+        QueueUsingStacks queue = new QueueUsingStacks();
+        queue.add(1);
+        queue.add(2);
+        try {
+            System.out.println(queue.peek());  // returns 1
+            System.out.println(queue.remove()); // returns 1
+            System.out.println(queue.isEmpty()); // returns false
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-
-        int peeked = second.peek();
-
-        while (!second.isEmpty()) {
-            first.push(second.pop());
-        }
-
-        return peeked;
     }
-
 }
