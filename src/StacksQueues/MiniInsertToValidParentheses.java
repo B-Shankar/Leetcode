@@ -1,4 +1,4 @@
-package stacks;
+package StacksQueues;
 
 //1541. Minimum Insertions to Balance a Parentheses String
 public class MiniInsertToValidParentheses {
