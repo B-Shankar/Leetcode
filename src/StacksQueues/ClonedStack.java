@@ -34,6 +34,24 @@ class ClonedStack {
         }
     }
 
+    //Using Recursion - O(n) Time and O(n) Space for Recursion Call Stack
+    static void clonedStackUsingRecursion(Stack<Integer> st, Stack<Integer> cloned) {
+
+        // If the source stack is empty, return.
+        if (st.empty())
+            return;
+
+        // Pop an element from the source stack.
+        int temp = st.peek();
+        st.pop();
+
+        // Recursively clone the remaining elements.
+        clonedStack(st, cloned);
+
+        // Push the popped element to the cloned stack.
+        cloned.push(temp);
+    }
+
     public static void main(String[] args) {
         Stack<Integer> source = new Stack<>();
         Stack<Integer> dest = new Stack<>();
