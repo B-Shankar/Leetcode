@@ -1,5 +1,6 @@
 package ArraysAndArrayList;
 
+//"53. Maximum Subarray" (Kadane)
 public class MaxSubArray {
     public int maxSubArray(int[] nums) {
         int currentSum = nums[0];
