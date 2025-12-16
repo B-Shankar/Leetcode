@@ -1,0 +1,27 @@
+package ArraysAndArrayList.sorting.bubble_sort;
+
+// 912 — Sort an Array
+public class SortArray {
+    public int[] sortArray(int[] nums) {
+        for (int i = 0; i < nums.length - 1; i++) {
+            for (int j = 0; j < nums.length - i - 1; j++) {
+                if (nums[j] > nums[j + 1]) {
+                    int t = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = t;
+                }
+            }
+        }
+        return nums;
+    }
+
+    public static void main(String[] args) {
+        SortArray sorter = new SortArray();
+        int[] arr = {64, 34, 25, 12, 22, 11, 90};
+        int[] sortedArr = sorter.sortArray(arr);
+
+        for (int num : sortedArr) {
+            System.out.print(num + " ");
+        }
+    }
+}
