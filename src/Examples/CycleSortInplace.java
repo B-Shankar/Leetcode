@@ -2,6 +2,7 @@ package Examples;
 
 import java.util.Arrays;
 
+// 1 - n : Unique
 public class CycleSortInplace {
 
     void cycleSort(int[] arr) {
